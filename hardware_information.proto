@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mypackage;
+
+service HardwareInformationProvider {
+  rpc GetInfo (HardwareInformationRequest) returns (HardwareInformationResponse);
+}
+
+message HardwareInformationRequest {}
+
+message SmartNicInfo {
+  string PfName = 1;
+  string PhcName = 2;
+}
+
+message HostNicInfo {
+  string PfName = 1;
+  string PhcName = 2;
+}
+
+message HardwareInformationResponse {
+  SmartNicInfo smartNicInfo = 1;
+  HostNicInfo hostNicInfo = 2;
+}
